@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import GlobalStyle from './styles/GlobalStyle';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
@@ -14,6 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
+        <GlobalStyle />
         <RecoilRoot>
           <Routes>
             <Route path="/" element={<Home />} />
