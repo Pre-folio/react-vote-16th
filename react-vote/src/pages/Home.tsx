@@ -14,3 +14,7 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
 `;
+
+const Section = styled.section`
+  margin-top: 30px;
+`;
