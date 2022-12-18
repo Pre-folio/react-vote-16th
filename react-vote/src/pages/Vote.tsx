@@ -1,3 +1,12 @@
+import { Outlet } from 'react-router-dom';
+import { Header } from '../components/elements/Header';
+
 export function Vote() {
-  return <div>vote 페이지</div>;
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <div>hiu</div>
+    </>
+  );
 }
