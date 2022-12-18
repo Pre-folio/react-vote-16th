@@ -43,6 +43,7 @@ const Wrapper = styled.header`
   position: fixed;
   top: 0;
   padding: 40px;
+  z-index: 1;
 `;
 
 const ContentWrapper = styled.div`

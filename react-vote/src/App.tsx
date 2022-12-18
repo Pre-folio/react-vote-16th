@@ -8,6 +8,10 @@ import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import { Vote } from './pages/Vote';
 import { Result } from './pages/Result';
+import { PartLeaderResult } from './pages/PartLeaderResult';
+import { DemoDayResult } from './pages/DemoDayResult';
+import { PartLeaderVote } from './pages/PartLeaderVote';
+import { DemoDayVote } from './pages/DemoDayVote';
 
 const queryClient = new QueryClient();
 
@@ -21,8 +25,14 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/vote" element={<Vote />} />
-            <Route path="/result" element={<Result />} />
+            <Route path="/vote" element={<Vote />}>
+              <Route path="part-leader" element={<PartLeaderVote />} />
+              <Route path="demo-day" element={<DemoDayVote />} />
+            </Route>
+            <Route path="/result" element={<Result />}>
+              <Route path="part-leader" element={<PartLeaderResult />} />
+              <Route path="demo-day" element={<DemoDayResult />} />
+            </Route>
           </Routes>
         </RecoilRoot>
       </QueryClientProvider>
