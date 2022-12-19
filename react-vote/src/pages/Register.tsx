@@ -1,3 +1,9 @@
+import RegisterList from '../components/elements/RegisterList';
+
 export function Register() {
-  return <div>Register 페이지</div>;
+  return (
+    <div>
+      <RegisterList />
+    </div>
+  );
 }

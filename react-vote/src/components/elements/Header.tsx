@@ -25,9 +25,9 @@ export function Header() {
       <Logo onClick={onClickLogoButton} />
       <ContentWrapper>
         {isLoggedIn ? (
-          <DefaultButton onClick={onClickCategoryButton} content="Logout" />
+          <DefaultButton onClick={onClickCategoryButton} content='Logout' />
         ) : (
-          <DefaultButton onClick={onClickCategoryButton} content="Login" />
+          <DefaultButton onClick={onClickCategoryButton} content='Login' />
         )}
       </ContentWrapper>
     </Wrapper>

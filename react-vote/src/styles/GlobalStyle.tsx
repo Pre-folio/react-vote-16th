@@ -7,8 +7,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    height: 100vh;
+
     font-family: Pretendard;
     line-height: 1.5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   button {
