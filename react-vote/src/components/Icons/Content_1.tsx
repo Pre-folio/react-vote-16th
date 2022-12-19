@@ -5,8 +5,8 @@ export function Content1({ onClick }: ContentButtonProps) {
     <button name="part-leader-vote" onClick={onClick}>
       <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M12.2198 100C4.56007 89.5056 0 76.3264 0 62.0149C0 27.765 26.1167 0 58.3333 0C74.6557 0 89.4124 7.127 100 18.6135C110.588 7.127 125.344 0 141.667 0C173.883 0 200 27.765 200 62.0149C200 76.3264 195.44 89.5056 187.78 100C195.44 110.494 200 123.674 200 137.985C200 172.235 173.883 200 141.667 200C125.344 200 110.588 192.873 100 181.387C89.4124 192.873 74.6557 200 58.3333 200C26.1167 200 0 172.235 0 137.985C0 123.674 4.56007 110.494 12.2198 100Z"
           fill="#DAD0E7"
         />

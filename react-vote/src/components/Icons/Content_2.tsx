@@ -5,8 +5,8 @@ export function Content2({ onClick }: ContentButtonProps) {
     <button name="demo-day-vote" onClick={onClick}>
       <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M54.6067 0C24.4465 0 0 24.4497 0 54.6099C0 73.5281 9.61971 90.1994 24.2344 99.9993C9.61941 109.799 0 126.471 0 145.39C0 175.55 24.4497 200 54.6099 200H145.39C175.55 200 200 175.55 200 145.39C200 126.471 190.381 109.799 175.766 99.9993C190.38 90.1994 200 73.5281 200 54.6099C200 24.4497 175.553 0 145.393 0H100H54.6067Z"
           fill="#FACACF"
         />

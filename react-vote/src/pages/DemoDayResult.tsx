@@ -3,13 +3,19 @@ import { Header } from '../components/elements/Header';
 import axios from 'axios';
 import { Title } from '../components/Icons/Title';
 import styled from 'styled-components';
-import { Rank } from '../components/elements/DemoDayrResult/Rank';
+import { Rank } from '../components/elements/DemoDayResult/Rank';
+import { getDemoDayResult } from '../api/getResult';
 
 export function DemoDayResult() {
-  const getRes = async () => {
-    await axios.get('http://prefoliovote.ml/vote/result/demo/').then((res) => console.log(res));
-  };
-  console.log(getRes());
+  // const getRes = async () => {
+  //   await axios.get('http://prefoliovote.ml/vote/result/demo/').then((res) => console.log(res));
+  // };
+  // console.log(getRes());\
+  const { isLoading, data } = useQuery(['demo-day-result'], async () => {
+    const result = await getDemoDayResult();
+    console.log(result.data);
+  });
+  console.log(isLoading, data);
 
   return (
     <div>

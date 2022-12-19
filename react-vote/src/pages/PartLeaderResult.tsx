@@ -3,12 +3,14 @@ import { Header } from '../components/elements/Header';
 import axios from 'axios';
 import { Title } from '../components/Icons/Title';
 import styled from 'styled-components';
+import { getPartLeaderResult } from '../api/getResult';
 
 export function PartLeaderResult() {
-  const getRes = async () => {
-    await axios.get('http://prefoliovote.ml/vote/result/demo/').then((res) => console.log(res));
-  };
-  console.log(getRes());
+  const { isLoading, data } = useQuery(['demo-day-result'], async () => {
+    const result = await getPartLeaderResult();
+    console.log(result);
+  });
+  console.log(isLoading, data);
 
   return (
     <div>
