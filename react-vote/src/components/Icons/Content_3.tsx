@@ -1,6 +1,8 @@
-export function Content3() {
+import { ContentButtonProps } from '../../interfaces';
+
+export function Content3({ onClick }: ContentButtonProps) {
   return (
-    <button>
+    <button name="part-leader-result" onClick={onClick}>
       <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="100" cy="100" r="100" fill="#DAD0E7" />
         <path

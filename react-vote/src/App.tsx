@@ -7,7 +7,6 @@ import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import { Vote } from './pages/Vote';
-import { Result } from './pages/Result';
 import { PartLeaderResult } from './pages/PartLeaderResult';
 import { DemoDayResult } from './pages/DemoDayResult';
 import { PartLeaderVote } from './pages/PartLeaderVote';
@@ -29,10 +28,8 @@ function App() {
               <Route path="part-leader" element={<PartLeaderVote />} />
               <Route path="demo-day" element={<DemoDayVote />} />
             </Route>
-            <Route path="/result" element={<Result />}>
-              <Route path="part-leader" element={<PartLeaderResult />} />
-              <Route path="demo-day" element={<DemoDayResult />} />
-            </Route>
+            <Route path="/result/part-leader" element={<PartLeaderResult />} />
+            <Route path="/result/demo-day" element={<DemoDayResult />} />
           </Routes>
         </RecoilRoot>
       </QueryClientProvider>

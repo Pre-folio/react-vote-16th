@@ -9,3 +9,11 @@ export interface ButtonProps {
   width?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface LeaderNameButtonProps {
+  name: string;
+}
+
+export interface ContentButtonProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}
