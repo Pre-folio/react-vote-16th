@@ -1,10 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { Outlet } from 'react-router-dom';
 import { Header } from '../components/elements/Header';
 import axios from 'axios';
-import { useEffect } from 'react';
 import { Title } from '../components/Icons/Title';
 import styled from 'styled-components';
+import { Rank } from '../components/elements/DemoDayrResult/Rank';
 
 export function DemoDayResult() {
   const getRes = async () => {
@@ -17,8 +16,11 @@ export function DemoDayResult() {
       <Header />
       <Wrapper>
         <Title />
+        <Rank teamName="주효정" rank={8} style={{ marginTop: '40px' }} />
+        <Rank teamName="주효정" rank={8} />
+        <Rank teamName="주효정" rank={8} />
+        <Rank teamName="주효정" rank={8} />
       </Wrapper>
-      {/* <Outlet /> */}
     </div>
   );
 }
@@ -28,5 +30,11 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 90px;
+  padding-top: 120px;
+  gap: 12px;
+`;
+
+const TeamListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

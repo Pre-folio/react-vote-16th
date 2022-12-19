@@ -1,8 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { Outlet } from 'react-router-dom';
 import { Header } from '../components/elements/Header';
 import axios from 'axios';
-import { useEffect } from 'react';
 import { Title } from '../components/Icons/Title';
 import styled from 'styled-components';
 
@@ -15,9 +13,7 @@ export function PartLeaderResult() {
   return (
     <div>
       <Header />
-      <Wrapper>
-        <Title />
-      </Wrapper>
+      <Wrapper>{/* <Title /> */}</Wrapper>
     </div>
   );
 }

@@ -15,17 +15,13 @@ export function Home() {
     let content = e.currentTarget.name;
     switch (content) {
       case 'part-leader-vote':
-        navigate('vote/part-leader');
-        return;
+        return navigate('vote/part-leader');
       case 'part-leader-result':
-        navigate('result/part-leader');
-        return;
+        return navigate('result/part-leader');
       case 'demo-day-vote':
-        navigate('vote/demo-day');
-        return;
+        return navigate('vote/demo-day');
       case 'demo-day-result':
-        navigate('result/demo-day');
-        return;
+        return navigate('result/demo-day');
       default:
         return;
     }

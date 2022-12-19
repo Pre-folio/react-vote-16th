@@ -17,3 +17,9 @@ export interface LeaderNameButtonProps {
 export interface ContentButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface RankProps {
+  teamName?: string;
+  rank?: number;
+  style?: object;
+}
