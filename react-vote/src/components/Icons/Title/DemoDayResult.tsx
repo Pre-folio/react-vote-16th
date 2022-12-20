@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export function Title() {
+export function DemoDayResultTitle() {
   return (
     <Wrapper>
       <svg width="283" height="97" viewBox="0 0 283 97" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { Header } from '../components/elements/Header';
 import axios from 'axios';
-import { Title } from '../components/Icons/Title';
 import styled from 'styled-components';
 import { getPartLeaderResult } from '../api/getResult';
+import { Container } from '../components/elements/Wrapper';
 
 export function PartLeaderResult() {
   const { isLoading, data } = useQuery(['demo-day-result'], async () => {
@@ -13,10 +13,10 @@ export function PartLeaderResult() {
   console.log(isLoading, data);
 
   return (
-    <div>
+    <Container>
       <Header />
       <Wrapper>{/* <Title /> */}</Wrapper>
-    </div>
+    </Container>
   );
 }
 

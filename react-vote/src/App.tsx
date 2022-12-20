@@ -6,7 +6,6 @@ import GlobalStyle from './styles/GlobalStyle';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
-import { Vote } from './pages/Vote';
 import { PartLeaderResult } from './pages/PartLeaderResult';
 import { DemoDayResult } from './pages/DemoDayResult';
 import { PartLeaderVote } from './pages/PartLeaderVote';
@@ -24,10 +23,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/vote" element={<Vote />}>
-              <Route path="part-leader" element={<PartLeaderVote />} />
-              <Route path="demo-day" element={<DemoDayVote />} />
-            </Route>
+            <Route path="/vote/part-leader" element={<PartLeaderVote />} />
+            <Route path="/vote/demo-day" element={<DemoDayVote />} />
             <Route path="/result/part-leader" element={<PartLeaderResult />} />
             <Route path="/result/demo-day" element={<DemoDayResult />} />
           </Routes>

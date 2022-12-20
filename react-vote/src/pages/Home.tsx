@@ -7,6 +7,7 @@ import { Content2 } from '../components/Icons/Content_2';
 import { Content3 } from '../components/Icons/Content_3';
 import { Content4 } from '../components/Icons/Content_4';
 import { useNavigate } from 'react-router-dom';
+import { Container } from '../components/elements/Wrapper';
 
 export function Home() {
   const navigate = useNavigate();
@@ -42,14 +43,7 @@ export function Home() {
   );
 }
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`;
-
-const Section = styled.div`
+const Section = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;

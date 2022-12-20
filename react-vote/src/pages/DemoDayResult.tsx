@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { Header } from '../components/elements/Header';
 import axios from 'axios';
-import { Title } from '../components/Icons/Title';
+import { DemoDayResultTitle } from '../components/Icons/Title/DemoDayResult';
 import styled from 'styled-components';
 import { Rank } from '../components/elements/DemoDayResult/Rank';
 import { getDemoDayResult } from '../api/getResult';
+import { Container } from '../components/elements/Wrapper';
 
 export function DemoDayResult() {
   // const getRes = async () => {
@@ -18,16 +19,16 @@ export function DemoDayResult() {
   console.log(isLoading, data);
 
   return (
-    <div>
+    <Container>
       <Header />
       <Wrapper>
-        <Title />
+        <DemoDayResultTitle />
         <Rank teamName="주효정" rank={8} style={{ marginTop: '40px' }} />
         <Rank teamName="주효정" rank={8} />
         <Rank teamName="주효정" rank={8} />
         <Rank teamName="주효정" rank={8} />
       </Wrapper>
-    </div>
+    </Container>
   );
 }
 
