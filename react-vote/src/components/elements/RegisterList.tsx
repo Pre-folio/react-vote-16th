@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import SubmitButton from '../Icons/SubmitButton';
 
 const RegisterList = () => {
   return (
@@ -9,22 +10,23 @@ const RegisterList = () => {
       <input type='password' placeholder='password' />
       <input type='password' placeholder='confirm password' />
       <select>
-        <option value='prefolio'>prefolio</option>
-        <option value='teample'>teample</option>
-        <option value='diaMEtes'>diaMetes</option>
-        <option value='recipeasy'>recipeasy</option>
-        <option value='forgetmenot'>forgetmenot</option>
+        <option value='forget_me_not'>Forget Me Not.</option>
+        <option value='prefolio'>Pre:folio</option>
+        <option value='teample'>Teample</option>
+        <option value='diametes'>diaMEtes</option>
+        <option value='recipeasy'>Recipeasy</option>
       </select>
       <RadioWrapper>
         <div>
-          <input type='radio' name='part' value='Front-end' checked />
-          Front-end
+          <input type='radio' id='part' name='part' value='frontend' />
+          <label htmlFor='part'>Front-end</label>
         </div>
         <div>
-          <input type='radio' name='part' value='Back-end' />
+          <input type='radio' name='part' value='backend' />
           Back-end
         </div>
       </RadioWrapper>
+      <SubmitButton content={'Join'} isActive={true} />
     </RegisterForm>
   );
 };
@@ -33,7 +35,6 @@ export default RegisterList;
 
 const RegisterForm = styled.form`
   width: 370px;
-  height: 370px;
 
   display: flex;
   flex-direction: column;

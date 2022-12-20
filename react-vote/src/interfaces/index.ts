@@ -9,3 +9,9 @@ export interface ButtonProps {
   width?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface SubmitButtonProps {
+  content: string;
+  isActive: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+}
