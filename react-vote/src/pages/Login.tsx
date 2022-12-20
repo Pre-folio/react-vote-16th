@@ -5,9 +5,11 @@ import LoginList from '../components/elements/LoginList';
 
 export function Login() {
   const navigate = useNavigate();
+
   const onClickJoinText = () => {
     navigate('/register');
   };
+
   return (
     <Container>
       <Header />

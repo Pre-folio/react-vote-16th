@@ -15,3 +15,31 @@ export interface SubmitButtonProps {
   isActive: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface JoinProps {
+  user_id: string;
+  name: string;
+  email: string;
+  password: string;
+  part: string;
+  team: string;
+}
+
+export interface LoginProps {
+  user_id: string;
+  password: string;
+}
+
+export interface IUserResponse {
+  user: {
+    user_id: string;
+    name: string;
+    part: string;
+    team: string;
+  };
+  message: string;
+  token: {
+    access: string;
+    refresh: string;
+  };
+}
