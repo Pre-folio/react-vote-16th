@@ -1,4 +1,4 @@
-export function DemoDayVoteTitleBack() {
+export function PartVoteTitleBack() {
   return (
     <svg width="270" height="90" viewBox="0 0 270 90" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path

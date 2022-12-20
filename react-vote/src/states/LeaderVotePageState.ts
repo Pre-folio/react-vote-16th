@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
-export const isClickedState = atom<boolean>({
+export const isLeaderClickedState = atom<boolean>({
   key: 'isClicked',
   default: false,
 });

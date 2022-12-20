@@ -8,10 +8,6 @@ import { getDemoDayResult } from '../api/getResult';
 import { Container } from '../components/elements/Wrapper';
 
 export function DemoDayResult() {
-  // const getRes = async () => {
-  //   await axios.get('http://prefoliovote.ml/vote/result/demo/').then((res) => console.log(res));
-  // };
-  // console.log(getRes());\
   const { isLoading, data } = useQuery(['demo-day-result'], async () => {
     const result = await getDemoDayResult();
     console.log(result.data);

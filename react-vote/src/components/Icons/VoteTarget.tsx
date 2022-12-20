@@ -1,18 +1,21 @@
 import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { LeaderNameButtonProps } from '../../interfaces';
-import { isClickedState, votedLeaderState } from '../../states/LeaderVotePageState';
+import { isTeamClickedState, votedTeamState } from '../../states/DemoDayVotePage';
+import { isLeaderClickedState, votedLeaderState } from '../../states/LeaderVotePageState';
 
-export function LeaderNameButton({ name, onClick }: LeaderNameButtonProps) {
-  const isClicked = useRecoilValue(isClickedState);
+export function VoteTarget({ name, onClick }: LeaderNameButtonProps) {
+  const isPartLeaderClicked = useRecoilValue(isLeaderClickedState);
+  const isTeamClicked = useRecoilValue(isTeamClickedState);
   const votedLeader = useRecoilValue(votedLeaderState);
+  const votedTeam = useRecoilValue(votedTeamState);
 
   return (
     <Column>
       <NameArea onClick={onClick} name={name}>
-        {name || '주효정'}
+        {name}
       </NameArea>
-      {isClicked && votedLeader === name ? <Line /> : <></>}
+      {(isPartLeaderClicked && votedLeader === name) || (isTeamClicked && votedTeam === name) ? <Line /> : <></>}
     </Column>
   );
 }
@@ -29,6 +32,7 @@ const NameArea = styled.button`
   position: relative;
   top: 8px;
   z-index: 1;
+  color: #484848;
 `;
 
 const Line = styled.div`
