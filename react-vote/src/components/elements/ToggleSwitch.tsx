@@ -13,20 +13,10 @@ const ToggleSwitch = (props: ToggleSwitchProps) => {
   return (
     <Wrapper>
       <ToggleContainer onClick={() => props.setIsFrontend(!props.isFrontend)}>
-        <div
-          className={`toggle-container ${
-            props.isFrontend ? 'toggle-checked' : null
-          }`}
-        >
+        <div className={`toggle-container ${props.isFrontend ? 'toggle-checked' : null}`}>
           &nbsp;&nbsp;프론트&nbsp;&nbsp;&nbsp;&nbsp;백엔드&nbsp;
         </div>
-        <div
-          className={`toggle-circle ${
-            props.isFrontend ? null : 'toggle-checked'
-          }`}
-        >
-          {part}
-        </div>
+        <div className={`toggle-circle ${props.isFrontend ? null : 'toggle-checked'}`}>{part}</div>
       </ToggleContainer>
     </Wrapper>
   );
@@ -40,7 +30,7 @@ const Wrapper = styled.div`
   align-items: center;
 
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;
 
 const ToggleContainer = styled.div`
