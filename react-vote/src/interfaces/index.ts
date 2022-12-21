@@ -64,3 +64,8 @@ export interface CheckButtonProps {
   isClicked: boolean;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
+
+export interface demoDayVoteProps {
+  team: string;
+  token: string;
+}

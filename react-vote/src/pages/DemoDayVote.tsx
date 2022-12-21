@@ -7,10 +7,17 @@ import { DemoDayVoteTitle } from '../components/Icons/Title/DemoDayVoteTitle';
 import { isTeamClickedState, votedTeamState } from '../states/DemoDayVotePage';
 import { useRecoilState } from 'recoil';
 import { CheckButton } from '../components/Icons/Checkbutton';
+import { userState } from '../states/loginState';
+import { demoDayVote } from '../api/vote';
 
 export function DemoDayVote() {
   const [isClicked, setIsClicked] = useRecoilState(isTeamClickedState);
   const [votedTeam, setVotedTeam] = useRecoilState(votedTeamState);
+  const [user, setUser] = useRecoilState(userState);
+
+  const token = user.token.access;
+
+  console.log(token);
 
   const onTargetButtonCick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const name = e.currentTarget.name;
@@ -25,7 +32,7 @@ export function DemoDayVote() {
 
   const onCheckButtonClick = () => {
     if (isClicked) {
-      // TODO api 연결
+      demoDayVote(votedTeam, token);
     } else return;
   };
 
