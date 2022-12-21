@@ -61,7 +61,7 @@ export default LoginList;
 
 const LoginForm = styled.form`
   width: 370px;
-  margin-top: 180px;
+  /* margin-top: 180px; */
 
   display: flex;
   flex-direction: column;

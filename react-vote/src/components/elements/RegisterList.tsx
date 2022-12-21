@@ -54,8 +54,8 @@ const RegisterList = () => {
   return (
     <RegisterForm onSubmit={handleSubmit(onSubmit, onError)}>
       <input
-        type='text'
-        placeholder='name'
+        type="text"
+        placeholder="name"
         {...register('name', {
           required: true,
           maxLength: {
@@ -70,8 +70,8 @@ const RegisterList = () => {
       />
 
       <input
-        type='text'
-        placeholder='id'
+        type="text"
+        placeholder="id"
         {...register('user_id', {
           required: true,
           maxLength: {
@@ -86,8 +86,8 @@ const RegisterList = () => {
       />
 
       <input
-        type='email'
-        placeholder='email'
+        type="email"
+        placeholder="email"
         {...register('email', {
           required: true,
           pattern: {
@@ -97,8 +97,8 @@ const RegisterList = () => {
         })}
       />
       <input
-        type='password'
-        placeholder='password'
+        type="password"
+        placeholder="password"
         {...register('password', {
           required: true,
           maxLength: {
@@ -112,8 +112,8 @@ const RegisterList = () => {
         })}
       />
       <input
-        type='password'
-        placeholder='confirm_password'
+        type="password"
+        placeholder="confirm_password"
         {...register('confirm_password', {
           required: true,
           maxLength: {
@@ -127,28 +127,19 @@ const RegisterList = () => {
         })}
       />
       <select {...register('team')}>
-        <option value='finble'>Finble</option>
-        <option value='prefolio'>Pre:folio</option>
-        <option value='teample'>Teample</option>
-        <option value='diametes'>diaMEtes</option>
-        <option value='recipeasy'>Recipeasy</option>
+        <option value="finble">Finble</option>
+        <option value="prefolio">Pre:folio</option>
+        <option value="teample">Teample</option>
+        <option value="diametes">diaMEtes</option>
+        <option value="recipeasy">Recipeasy</option>
       </select>
       <RadioWrapper>
         <div>
-          <input
-            type='radio'
-            id='part'
-            value='frontend'
-            {...register('part', { required: true })}
-          />
+          <input type="radio" id="part" value="frontend" {...register('part', { required: true })} />
           Front-end
         </div>
         <div>
-          <input
-            type='radio'
-            value='backend'
-            {...register('part', { required: true })}
-          />
+          <input type="radio" value="backend" {...register('part', { required: true })} />
           Back-end
         </div>
       </RadioWrapper>

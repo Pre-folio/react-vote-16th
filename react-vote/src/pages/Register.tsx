@@ -27,7 +27,7 @@ const Section = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 200px;
+  /* margin-top: 200px; */
   justify-content: center;
   align-items: center;
   color: ${BLACK_1};
