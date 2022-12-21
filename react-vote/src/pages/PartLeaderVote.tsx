@@ -46,6 +46,7 @@ export function PartLeaderVote() {
   const onCheckButtonClick = () => {
     if (isClicked) {
       partLeaderVote(votedLeader, token);
+      navigate('/result/part-leader');
     } else return;
   };
 

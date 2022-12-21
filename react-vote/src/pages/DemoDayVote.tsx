@@ -40,6 +40,7 @@ export function DemoDayVote() {
   const onCheckButtonClick = () => {
     if (isClicked) {
       demoDayVote(votedTeam, token);
+      navigate('/result/demo-day');
     } else return;
   };
 
@@ -49,11 +50,11 @@ export function DemoDayVote() {
       <Section>
         <DemoDayVoteTitle />
         <Column>
-          <VoteTarget name='Pre:folio' onClick={onTargetButtonCick} />
-          <VoteTarget name='Finble' onClick={onTargetButtonCick} />
-          <VoteTarget name='Teample' onClick={onTargetButtonCick} />
-          <VoteTarget name='diaMEtes' onClick={onTargetButtonCick} />
-          <VoteTarget name='Recipeasy' onClick={onTargetButtonCick} />
+          <VoteTarget name="Pre:folio" onClick={onTargetButtonCick} />
+          <VoteTarget name="Finble" onClick={onTargetButtonCick} />
+          <VoteTarget name="Teample" onClick={onTargetButtonCick} />
+          <VoteTarget name="diaMEtes" onClick={onTargetButtonCick} />
+          <VoteTarget name="Recipeasy" onClick={onTargetButtonCick} />
         </Column>
       </Section>
       <ButtonWrapper>
