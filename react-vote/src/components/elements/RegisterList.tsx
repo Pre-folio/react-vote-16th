@@ -1,15 +1,33 @@
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
+import { join } from '../../api/userRequest';
+import useInput from '../../hooks/useInput';
+import { setRefreshToken } from '../../storage/Cookie';
 import SubmitButton from '../Icons/SubmitButton';
 
 const RegisterList = () => {
+  const { register, watch, handleSubmit } = useForm();
+  console.log(watch());
+
+  const [isActive, setIsActive] = useState(false);
+
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
+
   return (
-    <RegisterForm>
-      <input type='text' placeholder='name' />
-      <input type='text' placeholder='id' />
-      <input type='email' placeholder='email' />
-      <input type='password' placeholder='password' />
-      <input type='password' placeholder='confirm password' />
-      <select>
+    <RegisterForm onSubmit={handleSubmit(onSubmit)}>
+      <input type='text' placeholder='name' {...register('name')} />
+      <input type='text' placeholder='id' {...register('user_id')} />
+      <input type='email' placeholder='email' {...register('email')} />
+      <input type='password' placeholder='password' {...register('password')} />
+      <input
+        type='password'
+        placeholder='confirm password'
+        {...register('confirm password')}
+      />
+      <select {...register('team')}>
         <option value='forget_me_not'>Forget Me Not.</option>
         <option value='prefolio'>Pre:folio</option>
         <option value='teample'>Teample</option>
@@ -18,15 +36,20 @@ const RegisterList = () => {
       </select>
       <RadioWrapper>
         <div>
-          <input type='radio' id='part' name='part' value='frontend' />
-          <label htmlFor='part'>Front-end</label>
+          <input
+            type='radio'
+            id='part'
+            value='frontend'
+            {...register('part')}
+          />
+          Front-end
         </div>
         <div>
-          <input type='radio' name='part' value='backend' />
+          <input type='radio' value='backend' {...register('part')} />
           Back-end
         </div>
       </RadioWrapper>
-      <SubmitButton content={'Join'} isActive={true} />
+      <SubmitButton content={'Join'} isActive={isActive} />
     </RegisterForm>
   );
 };
