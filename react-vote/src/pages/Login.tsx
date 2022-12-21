@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Header } from '../components/elements/Header';
 import LoginList from '../components/elements/LoginList';
+import { BLACK_1 } from '../styles/theme';
 
 export function Login() {
   const navigate = useNavigate();
@@ -13,8 +14,10 @@ export function Login() {
   return (
     <Container>
       <Header />
-      <LoginList />
-      <JoinText onClick={onClickJoinText}>회원이 아니신가요?</JoinText>
+      <Section>
+        <LoginList />
+        <JoinText onClick={onClickJoinText}>회원이 아니신가요?</JoinText>
+      </Section>
     </Container>
   );
 }
@@ -27,6 +30,20 @@ const Container = styled.div`
 
   width: 100%;
   height: 100vh;
+`;
+
+const Section = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 90px;
+  justify-content: center;
+  align-items: center;
+  color: ${BLACK_1};
+
+  & .main-1 {
+    font-size: 72px;
+  }
 `;
 
 const JoinText = styled.div`
