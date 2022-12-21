@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Header } from '../components/elements/Header';
 import { Container } from '../components/elements/Wrapper';
@@ -8,19 +8,30 @@ import { PartVoteTitleFront } from '../components/Icons/Title/PartVoteTitleFront
 
 import { BLACK_1 } from '../styles/theme';
 import { VoteTarget } from '../components/Icons/VoteTarget';
-import { isLeaderClickedState, votedLeaderState } from '../states/LeaderVotePageState';
-import { useRecoilState } from 'recoil';
+import {
+  isLeaderClickedState,
+  votedLeaderState,
+} from '../states/LeaderVotePageState';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { CheckButton } from '../components/Icons/Checkbutton';
 import { partLeaderVote } from '../api/vote';
-import { userState } from '../states/loginState';
+import { accessTokenSelector, userState } from '../states/loginState';
+import { useNavigate } from 'react-router-dom';
+import { access } from 'fs';
 
 export function PartLeaderVote() {
+  const navigate = useNavigate();
   const [isClicked, setIsClicked] = useRecoilState(isLeaderClickedState);
   const [votedLeader, setVotedLeader] = useRecoilState(votedLeaderState);
   const [user, setUser] = useRecoilState(userState);
+  const token = useRecoilValue(accessTokenSelector);
 
-  const token = user.token.access;
-  console.log('파트장 투표 페이지', token);
+  useEffect(() => {
+    if (token === '') {
+      alert('로그인이 필요합니다');
+      navigate('/login');
+    }
+  }, []);
 
   const onTargetButtonCick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const name = e.currentTarget.name;
@@ -45,16 +56,16 @@ export function PartLeaderVote() {
       <Section>
         <PartVoteTitleFront />
         <LeaderNameListWrapper>
-          <VoteTarget name="강나연" onClick={onTargetButtonCick} />
-          <VoteTarget name="장영준" onClick={onTargetButtonCick} />
-          <VoteTarget name="오지은" onClick={onTargetButtonCick} />
-          <VoteTarget name="안채연" onClick={onTargetButtonCick} />
-          <VoteTarget name="유선호" onClick={onTargetButtonCick} />
-          <VoteTarget name="임채리" onClick={onTargetButtonCick} />
-          <VoteTarget name="정희수" onClick={onTargetButtonCick} />
-          <VoteTarget name="김선영" onClick={onTargetButtonCick} />
-          <VoteTarget name="이한비" onClick={onTargetButtonCick} />
-          <VoteTarget name="이현영" onClick={onTargetButtonCick} />
+          <VoteTarget name='강나연' onClick={onTargetButtonCick} />
+          <VoteTarget name='장영준' onClick={onTargetButtonCick} />
+          <VoteTarget name='오지은' onClick={onTargetButtonCick} />
+          <VoteTarget name='안채연' onClick={onTargetButtonCick} />
+          <VoteTarget name='유선호' onClick={onTargetButtonCick} />
+          <VoteTarget name='임채리' onClick={onTargetButtonCick} />
+          <VoteTarget name='정희수' onClick={onTargetButtonCick} />
+          <VoteTarget name='김선영' onClick={onTargetButtonCick} />
+          <VoteTarget name='이한비' onClick={onTargetButtonCick} />
+          <VoteTarget name='이현영' onClick={onTargetButtonCick} />
         </LeaderNameListWrapper>
       </Section>
       <ButtonWrapper>

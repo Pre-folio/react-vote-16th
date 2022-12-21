@@ -20,20 +20,17 @@ const LoginList = () => {
 
   const handleLogin = async (e: any) => {
     e.preventDefault();
-    console.log('id', id.value);
-    console.log('pw', password.value);
     if (id.value !== '' && password.value !== '') {
       const response = await login({
         user_id: id.value,
         password: password.value,
-      });
+      }).catch((err) => alert('등록되지 않은 사용자입니다'));
       if (response) {
         setRefreshToken(response.token.refresh);
         setUser(response);
         setIsLoggedIn(true);
         navigate('/');
       }
-      console.log(response);
     }
   };
 
@@ -47,11 +44,17 @@ const LoginList = () => {
 
   return (
     <LoginForm onSubmit={handleLogin}>
-      <input type="text" name="id" placeholder="id" value={id.value} onChange={id.onChange} />
       <input
-        type="password"
-        name="password"
-        placeholder="password"
+        type='text'
+        name='id'
+        placeholder='id'
+        value={id.value}
+        onChange={id.onChange}
+      />
+      <input
+        type='password'
+        name='password'
+        placeholder='password'
         value={password.value}
         onChange={password.onChange}
       />

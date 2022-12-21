@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 
 export interface HeaderProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
@@ -23,6 +23,7 @@ export interface JoinProps {
   password: string;
   part: string;
   team: string;
+  is_candidate: boolean;
 }
 
 export interface LoginProps {
@@ -68,4 +69,14 @@ export interface CheckButtonProps {
 export interface demoDayVoteProps {
   team: string;
   token: string;
+}
+
+export interface TeamVoteProps {
+  team: string;
+  total: number;
+}
+
+export interface ToggleSwitchProps {
+  isFrontend: boolean;
+  setIsFrontend: Dispatch<SetStateAction<boolean>>;
 }
