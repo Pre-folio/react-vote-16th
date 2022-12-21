@@ -7,10 +7,12 @@ import { Rank } from '../components/elements/DemoDayResult/Rank';
 import { getDemoDayResult } from '../api/getResult';
 import { Container } from '../components/elements/Wrapper';
 import { TeamVoteProps } from '../interfaces';
-import { useState } from 'react';
 
 export function DemoDayResult() {
-  const { isLoading, data: teamListData }: any = useQuery(['demo-day-result'], getDemoDayResult);
+  const { isLoading, data: teamListData }: any = useQuery(
+    ['demo-day-result'],
+    getDemoDayResult
+  );
 
   return (
     <Container>

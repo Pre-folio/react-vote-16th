@@ -10,27 +10,41 @@ import { useEffect, useState } from 'react';
 
 export function PartLeaderResult() {
   const [isFrontend, setIsFrontend] = useState(true);
-  const { isLoading, data } = useQuery(['part-leader-result'], async () => {
-    const result = await getPartLeaderResult();
-    console.log(result);
-  });
-  console.log(isLoading, data);
+  const [part, setPart] = useState('frontend');
+  const [voteData, setVoteData] = useState();
+
+  const { isLoading, data: partLeaderData }: any = useQuery(
+    ['part-leader-result', part],
+    async () => {
+      const result = await getPartLeaderResult(part);
+      return result;
+    }
+  );
 
   const toggleSwitchHandler = () => {
     setIsFrontend(!isFrontend);
-    console.log(isFrontend);
   };
 
   useEffect(() => {
     console.log(isFrontend);
+    console.log(part);
+    isFrontend ? setPart('frontend') : setPart('backend');
   }, [isFrontend]);
 
   return (
     <Container>
       <Header />
-      <ToggleSwitch isFrontend={isFrontend} setIsFrontend={setIsFrontend} />
       <Wrapper>
-        <Rank teamName="주효정" rank={8} style={{ marginTop: '40px' }} />
+        <ToggleSwitch isFrontend={isFrontend} setIsFrontend={setIsFrontend} />
+        <RankWrapper>
+          {partLeaderData ? (
+            partLeaderData.data.map((votee: any) => {
+              return <Rank teamName={votee.votee} rank={votee.total} />;
+            })
+          ) : (
+            <></>
+          )}
+        </RankWrapper>
       </Wrapper>
     </Container>
   );
@@ -43,4 +57,10 @@ const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+`;
+
+const RankWrapper = styled.div`
+  margin-top: 100px;
+  height: 600px;
+  overflow: auto;
 `;
