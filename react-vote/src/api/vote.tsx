@@ -13,7 +13,7 @@ export const demoDayVote = (team: any, token: any) => {
         },
       }
     )
-    .then((res) => console.log(res.data));
+    .then((res) => alert(res.data));
 };
 
 export const partLeaderVote = (name: any, token: any) => {
@@ -29,5 +29,5 @@ export const partLeaderVote = (name: any, token: any) => {
         },
       }
     )
-    .then((res) => console.log(res.data));
+    .then((res) => alert(res.data));
 };
