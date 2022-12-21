@@ -8,10 +8,7 @@ import { PartVoteTitleFront } from '../components/Icons/Title/PartVoteTitleFront
 
 import { BLACK_1 } from '../styles/theme';
 import { VoteTarget } from '../components/Icons/VoteTarget';
-import {
-  isLeaderClickedState,
-  votedLeaderState,
-} from '../states/LeaderVotePageState';
+import { isLeaderClickedState, votedLeaderState } from '../states/LeaderVotePageState';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { CheckButton } from '../components/Icons/Checkbutton';
 import { partLeaderVote } from '../api/vote';
@@ -25,6 +22,8 @@ export function PartLeaderVote() {
   const [votedLeader, setVotedLeader] = useRecoilState(votedLeaderState);
   const [user, setUser] = useRecoilState(userState);
   const token = useRecoilValue(accessTokenSelector);
+
+  console.log(user);
 
   useEffect(() => {
     if (token === '') {
@@ -54,19 +53,39 @@ export function PartLeaderVote() {
     <Container>
       <Header />
       <Section>
-        <PartVoteTitleFront />
-        <LeaderNameListWrapper>
-          <VoteTarget name='강나연' onClick={onTargetButtonCick} />
-          <VoteTarget name='장영준' onClick={onTargetButtonCick} />
-          <VoteTarget name='오지은' onClick={onTargetButtonCick} />
-          <VoteTarget name='안채연' onClick={onTargetButtonCick} />
-          <VoteTarget name='유선호' onClick={onTargetButtonCick} />
-          <VoteTarget name='임채리' onClick={onTargetButtonCick} />
-          <VoteTarget name='정희수' onClick={onTargetButtonCick} />
-          <VoteTarget name='김선영' onClick={onTargetButtonCick} />
-          <VoteTarget name='이한비' onClick={onTargetButtonCick} />
-          <VoteTarget name='이현영' onClick={onTargetButtonCick} />
-        </LeaderNameListWrapper>
+        {user.user.part === 'frontend' ? (
+          <>
+            <PartVoteTitleFront />
+            <LeaderNameListWrapper>
+              <VoteTarget name="강나연" onClick={onTargetButtonCick} />
+              <VoteTarget name="장영준" onClick={onTargetButtonCick} />
+              <VoteTarget name="오지은" onClick={onTargetButtonCick} />
+              <VoteTarget name="안채연" onClick={onTargetButtonCick} />
+              <VoteTarget name="유선호" onClick={onTargetButtonCick} />
+              <VoteTarget name="임채리" onClick={onTargetButtonCick} />
+              <VoteTarget name="정희수" onClick={onTargetButtonCick} />
+              <VoteTarget name="김선영" onClick={onTargetButtonCick} />
+              <VoteTarget name="이한비" onClick={onTargetButtonCick} />
+              <VoteTarget name="이현영" onClick={onTargetButtonCick} />
+            </LeaderNameListWrapper>
+          </>
+        ) : (
+          <>
+            <PartVoteTitleBack />
+            <LeaderNameListWrapper>
+              <VoteTarget name="안혜진" onClick={onTargetButtonCick} />
+              <VoteTarget name="이정현" onClick={onTargetButtonCick} />
+              <VoteTarget name="채승희" onClick={onTargetButtonCick} />
+              <VoteTarget name="최수현" onClick={onTargetButtonCick} />
+              <VoteTarget name="전수민" onClick={onTargetButtonCick} />
+              <VoteTarget name="정상훈" onClick={onTargetButtonCick} />
+              <VoteTarget name="배수아" onClick={onTargetButtonCick} />
+              <VoteTarget name="이지안" onClick={onTargetButtonCick} />
+              <VoteTarget name="박준열" onClick={onTargetButtonCick} />
+              <VoteTarget name="조현영" onClick={onTargetButtonCick} />
+            </LeaderNameListWrapper>
+          </>
+        )}
       </Section>
       <ButtonWrapper>
         <CheckButton isClicked={isClicked} onClick={onCheckButtonClick} />
