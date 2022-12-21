@@ -5,19 +5,26 @@ import { BLACK_1 } from '../styles/theme';
 import { VoteTarget } from '../components/Icons/VoteTarget';
 import { DemoDayVoteTitle } from '../components/Icons/Title/DemoDayVoteTitle';
 import { isTeamClickedState, votedTeamState } from '../states/DemoDayVotePage';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { CheckButton } from '../components/Icons/Checkbutton';
-import { userState } from '../states/loginState';
+import { accessTokenSelector, userState } from '../states/loginState';
 import { demoDayVote } from '../api/vote';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export function DemoDayVote() {
+  const navigate = useNavigate();
   const [isClicked, setIsClicked] = useRecoilState(isTeamClickedState);
   const [votedTeam, setVotedTeam] = useRecoilState(votedTeamState);
   const [user, setUser] = useRecoilState(userState);
+  const token = useRecoilValue(accessTokenSelector);
 
-  const token = user.token.access;
-
-  console.log(token);
+  useEffect(() => {
+    if (token === '') {
+      alert('로그인이 필요합니다');
+      navigate('/login');
+    }
+  }, []);
 
   const onTargetButtonCick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const name = e.currentTarget.name;
@@ -42,11 +49,11 @@ export function DemoDayVote() {
       <Section>
         <DemoDayVoteTitle />
         <Column>
-          <VoteTarget name="Pre:folio" onClick={onTargetButtonCick} />
-          <VoteTarget name="Forget Me Not." onClick={onTargetButtonCick} />
-          <VoteTarget name="Teample" onClick={onTargetButtonCick} />
-          <VoteTarget name="diaMEtes" onClick={onTargetButtonCick} />
-          <VoteTarget name="Recipeasy" onClick={onTargetButtonCick} />
+          <VoteTarget name='Pre:folio' onClick={onTargetButtonCick} />
+          <VoteTarget name='Forget Me Not.' onClick={onTargetButtonCick} />
+          <VoteTarget name='Teample' onClick={onTargetButtonCick} />
+          <VoteTarget name='diaMEtes' onClick={onTargetButtonCick} />
+          <VoteTarget name='Recipeasy' onClick={onTargetButtonCick} />
         </Column>
       </Section>
       <ButtonWrapper>
