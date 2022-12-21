@@ -1,12 +1,19 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { login } from '../../api/userRequest';
 import useInput from '../../hooks/useInput';
+import { isLoggedInState } from '../../states/homePageState';
+import { userState } from '../../states/loginState';
 import { setRefreshToken } from '../../storage/Cookie';
 import SubmitButton from '../Icons/SubmitButton';
 
 const LoginList = () => {
   const [isActive, setIsActive] = useState(false);
+  const [user, setUser] = useRecoilState(userState);
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
+  const navigate = useNavigate();
 
   const id = useInput('');
   const password = useInput('');
@@ -22,6 +29,9 @@ const LoginList = () => {
       });
       if (response) {
         setRefreshToken(response.token.refresh);
+        setUser(response);
+        setIsLoggedIn(true);
+        navigate('/');
       }
       console.log(response);
     }
@@ -37,17 +47,11 @@ const LoginList = () => {
 
   return (
     <LoginForm onSubmit={handleLogin}>
+      <input type="text" name="id" placeholder="id" value={id.value} onChange={id.onChange} />
       <input
-        type='text'
-        name='id'
-        placeholder='id'
-        value={id.value}
-        onChange={id.onChange}
-      />
-      <input
-        type='password'
-        name='password'
-        placeholder='password'
+        type="password"
+        name="password"
+        placeholder="password"
         value={password.value}
         onChange={password.onChange}
       />

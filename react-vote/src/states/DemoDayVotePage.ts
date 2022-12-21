@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 
 export const isTeamClickedState = atom<boolean>({
-  key: 'isClicked',
+  key: 'isTeamClicked',
   default: false,
 });
 
