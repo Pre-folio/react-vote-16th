@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import { join } from '../../api/userRequest';
@@ -9,6 +10,7 @@ import SubmitButton from '../Icons/SubmitButton';
 
 const RegisterList = () => {
   const [user, setUser] = useRecoilState(userState);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -40,8 +42,9 @@ const RegisterList = () => {
     if (response) {
       setRefreshToken(response.token.refresh);
       setUser(response);
+      alert('가입완료');
+      navigate('/login');
     }
-    console.log(response);
   };
 
   const onError = (error: any) => {
@@ -124,7 +127,7 @@ const RegisterList = () => {
         })}
       />
       <select {...register('team')}>
-        <option value='forget_me_not'>Forget Me Not.</option>
+        <option value='finble'>Finble</option>
         <option value='prefolio'>Pre:folio</option>
         <option value='teample'>Teample</option>
         <option value='diametes'>diaMEtes</option>
