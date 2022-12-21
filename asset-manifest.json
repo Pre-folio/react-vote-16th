@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-vote-16th/static/css/main.980645e8.css",
+    "main.js": "/react-vote-16th/static/js/main.6b34fe4a.js",
+    "static/media/Pretendard-Medium.otf": "/react-vote-16th/static/media/Pretendard-Medium.bcebdfe0d3918708aa5d.otf",
+    "static/media/Pretendard-Bold.otf": "/react-vote-16th/static/media/Pretendard-Bold.e75150e686324d4f5c03.otf",
+    "index.html": "/react-vote-16th/index.html",
+    "main.980645e8.css.map": "/react-vote-16th/static/css/main.980645e8.css.map",
+    "main.6b34fe4a.js.map": "/react-vote-16th/static/js/main.6b34fe4a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.980645e8.css",
+    "static/js/main.6b34fe4a.js"
+  ]
+}
