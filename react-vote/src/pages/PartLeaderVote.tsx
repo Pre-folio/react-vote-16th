@@ -11,10 +11,16 @@ import { VoteTarget } from '../components/Icons/VoteTarget';
 import { isLeaderClickedState, votedLeaderState } from '../states/LeaderVotePageState';
 import { useRecoilState } from 'recoil';
 import { CheckButton } from '../components/Icons/Checkbutton';
+import { partLeaderVote } from '../api/vote';
+import { userState } from '../states/loginState';
 
 export function PartLeaderVote() {
   const [isClicked, setIsClicked] = useRecoilState(isLeaderClickedState);
   const [votedLeader, setVotedLeader] = useRecoilState(votedLeaderState);
+  const [user, setUser] = useRecoilState(userState);
+
+  const token = user.token.access;
+  console.log('파트장 투표 페이지', token);
 
   const onTargetButtonCick = (e: React.MouseEvent<HTMLButtonElement>) => {
     const name = e.currentTarget.name;
@@ -29,7 +35,7 @@ export function PartLeaderVote() {
 
   const onCheckButtonClick = () => {
     if (isClicked) {
-      // TODO api 연결
+      partLeaderVote(votedLeader, token);
     } else return;
   };
 

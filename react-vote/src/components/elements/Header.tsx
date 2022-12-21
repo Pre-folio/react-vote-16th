@@ -11,12 +11,14 @@ export function Header() {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
 
   const onClickLogoButton = () => {
-    navigate(0);
+    navigate('/');
   };
+
   const onClickCategoryButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     const content = e.currentTarget.name.toLowerCase();
     if (content === 'logout') {
       setIsLoggedIn(false);
+      navigate('/');
     } else navigate(`/${content}`);
   };
 
@@ -25,9 +27,9 @@ export function Header() {
       <Logo onClick={onClickLogoButton} />
       <ContentWrapper>
         {isLoggedIn ? (
-          <DefaultButton onClick={onClickCategoryButton} content='Logout' />
+          <DefaultButton onClick={onClickCategoryButton} content="Logout" />
         ) : (
-          <DefaultButton onClick={onClickCategoryButton} content='Login' />
+          <DefaultButton onClick={onClickCategoryButton} content="Login" />
         )}
       </ContentWrapper>
     </Wrapper>
