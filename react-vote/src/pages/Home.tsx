@@ -31,7 +31,7 @@ export function Home() {
     <Container>
       <Header />
       <Section>
-        <div className="main-1">Vote for...</div>
+        <div className='main-1'>Vote for...</div>
         <ContentWrapper>
           <Content1 onClick={onClickContentButton} />
           <Content2 onClick={onClickContentButton} />
