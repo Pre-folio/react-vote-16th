@@ -1,6 +1,8 @@
-export function Content2() {
+import { ContentButtonProps } from '../../interfaces';
+
+export function Content2({ onClick }: ContentButtonProps) {
   return (
-    <button>
+    <button name='demo-day-vote' onClick={onClick}>
       <svg
         width='200'
         height='200'

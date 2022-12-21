@@ -19,12 +19,6 @@ const RegisterList = () => {
     mode: 'onChange',
   });
 
-  //console.log(watch());
-
-  useEffect(() => {
-    console.log('recoil', user);
-  }, [user]);
-
   const [isActive, setIsActive] = useState(false);
 
   const onSubmit = async (data: any) => {
