@@ -44,17 +44,11 @@ const LoginList = () => {
 
   return (
     <LoginForm onSubmit={handleLogin}>
+      <input type="text" name="id" placeholder="id" value={id.value} onChange={id.onChange} />
       <input
-        type='text'
-        name='id'
-        placeholder='id'
-        value={id.value}
-        onChange={id.onChange}
-      />
-      <input
-        type='password'
-        name='password'
-        placeholder='password'
+        type="password"
+        name="password"
+        placeholder="password"
         value={password.value}
         onChange={password.onChange}
       />
@@ -67,6 +61,7 @@ export default LoginList;
 
 const LoginForm = styled.form`
   width: 370px;
+  margin-top: 200px;
 
   display: flex;
   flex-direction: column;

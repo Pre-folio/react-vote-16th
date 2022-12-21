@@ -4,9 +4,9 @@ import { RankProps } from '../../../interfaces';
 export function Rank({ teamName, rank, style }: RankProps) {
   return (
     <Wrapper style={style}>
-      <TeamName>Pre:folio</TeamName>
+      <TeamName>{teamName}</TeamName>
       <Column>
-        <RankNumber>8</RankNumber>
+        <RankNumber>{rank}</RankNumber>
         <Line />
       </Column>
     </Wrapper>

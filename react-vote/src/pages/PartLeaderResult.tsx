@@ -30,7 +30,7 @@ export function PartLeaderResult() {
       <Header />
       <ToggleSwitch isFrontend={isFrontend} setIsFrontend={setIsFrontend} />
       <Wrapper>
-        <Rank teamName='주효정' rank={8} style={{ marginTop: '40px' }} />
+        <Rank teamName="주효정" rank={8} style={{ marginTop: '40px' }} />
       </Wrapper>
     </Container>
   );
