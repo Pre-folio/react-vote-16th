@@ -14,19 +14,6 @@ export const join = (props: JoinProps) => {
     .then((res) => res.data);
 };
 
-// export const join = () => {
-//   return client
-//     .post('/user/join/', {
-//       user_id: 'nayeon6',
-//       name: '강나연',
-//       email: 'nay0on2@naver.com',
-//       password: 'skdus0206!',
-//       part: 'frontend',
-//       team: 'prefolio',
-//     })
-//     .then((res) => res.data);
-// };
-
 export const login = (props: LoginProps) => {
   return client
     .post('user/login/', {
