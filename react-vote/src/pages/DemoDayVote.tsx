@@ -49,11 +49,11 @@ export function DemoDayVote() {
       <Section>
         <DemoDayVoteTitle />
         <Column>
-          <VoteTarget name="Pre:folio" onClick={onTargetButtonCick} />
-          <VoteTarget name="Forget Me Not." onClick={onTargetButtonCick} />
-          <VoteTarget name="Teample" onClick={onTargetButtonCick} />
-          <VoteTarget name="diaMEtes" onClick={onTargetButtonCick} />
-          <VoteTarget name="Recipeasy" onClick={onTargetButtonCick} />
+          <VoteTarget name='Pre:folio' onClick={onTargetButtonCick} />
+          <VoteTarget name='Finble' onClick={onTargetButtonCick} />
+          <VoteTarget name='Teample' onClick={onTargetButtonCick} />
+          <VoteTarget name='diaMEtes' onClick={onTargetButtonCick} />
+          <VoteTarget name='Recipeasy' onClick={onTargetButtonCick} />
         </Column>
       </Section>
       <ButtonWrapper>

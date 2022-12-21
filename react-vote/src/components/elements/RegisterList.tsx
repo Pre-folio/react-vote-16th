@@ -127,7 +127,7 @@ const RegisterList = () => {
         })}
       />
       <select {...register('team')}>
-        <option value='forget_me_not'>Forget Me Not.</option>
+        <option value='finble'>Finble</option>
         <option value='prefolio'>Pre:folio</option>
         <option value='teample'>Teample</option>
         <option value='diametes'>diaMEtes</option>
