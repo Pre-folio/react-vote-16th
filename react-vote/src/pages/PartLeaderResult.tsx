@@ -4,18 +4,35 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { getPartLeaderResult } from '../api/getResult';
 import { Container } from '../components/elements/Wrapper';
+import { Rank } from '../components/elements/DemoDayResult/Rank';
+import ToggleSwitch from '../components/elements/ToggleSwitch';
+import { useEffect, useState } from 'react';
 
 export function PartLeaderResult() {
-  const { isLoading, data } = useQuery(['demo-day-result'], async () => {
+  const [isFrontend, setIsFrontend] = useState(true);
+  const { isLoading, data } = useQuery(['part-leader-result'], async () => {
     const result = await getPartLeaderResult();
     console.log(result);
   });
   console.log(isLoading, data);
 
+  const toggleSwitchHandler = () => {
+    setIsFrontend(!isFrontend);
+    console.log(isFrontend);
+  };
+
+  useEffect(() => {
+    console.log(isFrontend);
+  }, [isFrontend]);
+
   return (
     <Container>
       <Header />
-      <Wrapper>{/* <Title /> */}</Wrapper>
+      <ToggleSwitch isFrontend={isFrontend} setIsFrontend={setIsFrontend} />
+      {/* <Title /> */}{' '}
+      <Wrapper>
+        <Rank teamName='주효정' rank={8} style={{ marginTop: '40px' }} />
+      </Wrapper>
     </Container>
   );
 }
@@ -25,5 +42,5 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 90px;
+  width: 100%;
 `;

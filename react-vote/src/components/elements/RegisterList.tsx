@@ -33,6 +33,7 @@ const RegisterList = () => {
       password: data.password,
       part: data.part,
       team: data.team,
+      is_candidate: true,
     });
     if (response) {
       setRefreshToken(response.token.refresh);
