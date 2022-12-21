@@ -26,6 +26,7 @@ export const userState = atom<IUserResponse>({
       refresh: '',
     },
   },
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const accessTokenSelector = selector({
