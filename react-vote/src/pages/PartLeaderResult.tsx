@@ -29,7 +29,6 @@ export function PartLeaderResult() {
     <Container>
       <Header />
       <ToggleSwitch isFrontend={isFrontend} setIsFrontend={setIsFrontend} />
-      {/* <Title /> */}{' '}
       <Wrapper>
         <Rank teamName='주효정' rank={8} style={{ marginTop: '40px' }} />
       </Wrapper>
@@ -43,4 +42,5 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100%;
 `;
