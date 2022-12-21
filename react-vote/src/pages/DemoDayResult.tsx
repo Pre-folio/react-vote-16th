@@ -9,22 +9,24 @@ import { Container } from '../components/elements/Wrapper';
 import { TeamVoteProps } from '../interfaces';
 
 export function DemoDayResult() {
-  const { isLoading, data } = useQuery(['demo-day-result'], async () => {
-    const result = await getDemoDayResult();
-    console.log(result.data);
-  });
-  console.log(isLoading, data);
+  const { isLoading, data: teamListData }: any = useQuery(
+    ['demo-day-result'],
+    getDemoDayResult
+  );
 
   return (
     <Container>
       <Header />
       <Wrapper>
         <DemoDayResultTitle />
-        {/* {data!.map((team: TeamVoteProps) => )} */}
-        <Rank teamName='주효정' rank={8} style={{ marginTop: '40px' }} />
-        <Rank teamName='주효정' rank={8} />
-        <Rank teamName='주효정' rank={8} />
-        <Rank teamName='주효정' rank={8} />
+        {teamListData ? (
+          teamListData.map((team: TeamVoteProps) => {
+            console.log(team);
+            return <Rank teamName={team.team} rank={team.total} />;
+          })
+        ) : (
+          <></>
+        )}
       </Wrapper>
     </Container>
   );
