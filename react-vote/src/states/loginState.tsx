@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
 import { recoilPersist } from 'recoil-persist';
 import { login } from '../api/userRequest';
 import { IUserResponse, LoginProps } from '../interfaces';
@@ -28,24 +28,11 @@ export const userState = atom<IUserResponse>({
   },
 });
 
-/* LoginInputState가 바뀌면 login을 시도하고 
-바뀐 정보는 LoginSelector에 저장
-LoginState는 true로 변경 
-나 뭐했니...
-*/
-
-// export const LoginSelector = selector({
-//   key: 'loginSelector',
-//   get: ({ get }) => {
-//     if (get(LoginState) === true) {
-//       const props = get(LoginInputState);
-//       login(props).then((res) => {
-//         console.log(res);
-//         return res;
-//       });
-//     }
-//   },
-//   set: ({ set }) => {
-//     set(LoginState, true);
-//   },
-// });
+const accessTokenSelector = selector({
+  key: 'accessTokenSelector',
+  get: ({ get }) => {
+    const user = get(userState);
+    const accessToken = user.token.access;
+    return accessToken;
+  },
+});
