@@ -23,6 +23,7 @@ export interface JoinProps {
   password: string;
   part: string;
   team: string;
+  is_candidate: boolean;
 }
 
 export interface LoginProps {

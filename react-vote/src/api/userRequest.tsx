@@ -10,6 +10,7 @@ export const join = (props: JoinProps) => {
       password: props.password,
       part: props.part,
       team: props.team,
+      is_candidate: true,
     })
     .then((res) => res.data);
 };
