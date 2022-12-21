@@ -47,7 +47,6 @@ const ToggleContainer = styled.div`
   position: relative;
   top: 90px;
   width: 100%;
-  left: 20%;
   cursor: pointer;
   color: ${BLACK_1};
   font-size: 30px;

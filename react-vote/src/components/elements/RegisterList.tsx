@@ -24,6 +24,8 @@ const RegisterList = () => {
   const onSubmit = async (data: any) => {
     if (data.password !== data.confirm_password) {
       alert('비밀번호가 일치하지 않아요 🥲');
+      console.log(data.password);
+      console.log(data.confim_password);
       return;
     }
     const response = await join({
@@ -109,7 +111,7 @@ const RegisterList = () => {
       <input
         type='password'
         placeholder='confirm_password'
-        {...register('confirm password', {
+        {...register('confirm_password', {
           required: true,
           maxLength: {
             value: 30,
